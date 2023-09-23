@@ -1,0 +1,16 @@
+version: '3'
+tasks:
+  format:
+    cmds:
+      - goimports -w .
+
+  lint:
+    cmds:
+      - staticcheck ./...
+  test:
+    cmds:
+      - go test
+
+  start:
+    cmds:
+      - go run .
