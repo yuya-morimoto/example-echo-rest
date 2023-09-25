@@ -1,12 +1,12 @@
 package router
 
 import (
-	"example-rest/handler"
+	"example-rest/presentation/handler"
 
 	"github.com/labstack/echo/v4"
 )
 
-func Setup(e *echo.Echo) {
+func Init(e *echo.Echo) {
 
 	handler.AuthRouter(e)
 

@@ -1,7 +1,8 @@
 package main
 
 import (
-	"example-rest/router"
+	"example-rest/presentation/router"
+	"os"
 
 	"github.com/labstack/echo/v4"
 )
@@ -9,8 +10,12 @@ import (
 func main() {
 	e := echo.New()
 	// Setup router
-	router.Setup(e)
+	router.Init(e)
 
-	e.Logger.Fatal(e.Start(":8080"))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8090"
+	}
+	e.Logger.Fatal(e.Start(":" + port))
 
 }
